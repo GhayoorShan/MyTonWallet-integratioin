@@ -1,10 +1,21 @@
 import "./App.css";
+import { TonConnectButton } from "@tonconnect/ui-react";
+import { useTonConnect } from "./hooks/useTonConnect";
+
+// import "@twa-dev/sdk";
 
 function App() {
+  const { connected } = useTonConnect();
+  console.log("connected", connected);
+
   return (
-    <>
-      <p>MyTonWallet</p>
-    </>
+    <div className="">
+      <div className="">
+        <TonConnectButton />
+
+        <p>{connected ? "Connected" : "Not Connected"}</p>
+      </div>
+    </div>
   );
 }
 
